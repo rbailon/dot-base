@@ -13,7 +13,6 @@ export PATH=$PATH:~/.local/bin
 
 # -------------------------------------------------
 # ALIAS
-# En ~/.bashrc
 if [ -f ~/.aliases ]; then
     source ~/.aliases
 fi
