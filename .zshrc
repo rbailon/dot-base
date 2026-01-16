@@ -5,6 +5,7 @@
 # -------------------------------------------------
 # Exports
 export EDITOR=nvim
+export TERM=xterm-256color
 export PATH=$PATH:~/.local/bin
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -105,7 +106,10 @@ alias xrdp='xfreerdp3 /tls:seclevel:0 /size:1600x900 /u:adminrb /d:aytotias '
 alias xrdph='xfreerdp3 /tls:seclevel:0 /size:1440x900 /u:administrador '
 
 # Shell integrations
-eval "$(fzf --zsh)"
+if fzf --help | grep -q -- '--zsh'; then
+  eval "$(fzf --zsh)"
+fi
+
 eval "$(zoxide init --cmd cd zsh)"
 
 # -------------------------------------------------
