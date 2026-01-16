@@ -93,21 +93,37 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # -------------------------------------------------
 # ALIAS
-alias c='clear'
-alias ls='eza -a --icons=always'
-alias ll='eza -al --icons=always'
-alias lt='eza -a --tree --level=1 --icons=always'
-alias cat='bat'
-alias v='$EDITOR'
-alias vim='$EDITOR'
-alias c='clear'
-alias sudo='sudo -E'
-alias xrdp='xfreerdp3 /tls:seclevel:0 /size:1600x900 /u:adminrb /d:aytotias '
-alias xrdph='xfreerdp3 /tls:seclevel:0 /size:1440x900 /u:administrador '
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
+# -------------------------------------------------
 
 # Shell integrations
-if fzf --help | grep -q -- '--zsh'; then
-  eval "$(fzf --zsh)"
+# --- fzf Zsh integration (robusta y compatible) ---
+if command -v fzf >/dev/null 2>&1; then
+  if fzf --help 2>/dev/null | grep -q -- '--zsh'; then
+    # fzf moderno
+    eval "$(fzf --zsh)"
+  else
+    # fzf antiguo (<= 0.44.x)
+    FZF_LEGACY_DIR="$HOME/.fzf-0.44.1"
+
+    if [ ! -d "$FZF_LEGACY_DIR" ]; then
+      if command -v git >/dev/null 2>&1; then
+        git clone --depth 1 --branch 0.44.1 \
+          https://github.com/junegunn/fzf.git \
+          "$FZF_LEGACY_DIR" >/dev/null 2>&1
+      fi
+    fi
+
+    if [ -f "$FZF_LEGACY_DIR/shell/key-bindings.zsh" ]; then
+      source "$FZF_LEGACY_DIR/shell/key-bindings.zsh"
+    fi
+
+    if [ -f "$FZF_LEGACY_DIR/shell/completion.zsh" ]; then
+      source "$FZF_LEGACY_DIR/shell/completion.zsh"
+    fi
+  fi
 fi
 
 eval "$(zoxide init --cmd cd zsh)"
