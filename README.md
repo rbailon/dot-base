@@ -2,23 +2,20 @@
 Dotfiles personalizados
 
 ## Description 
-El objetivo es conservar y registrar los cambios de mis archivos de configuración personalizados
+El objetivo es conservar y registrar los cambios de los archivos de configuración y personalizaciones base
 
 ## Requisitos base
   - zsh: Intérprete de comandos para sistemas Unix (como Linux y macOS)
-  - neovim: Editor de texto modal en terminal, moderno y altamente extensible (fork de Vim).
+  - neovim: Editor de texto modal en terminal, moderno y altamente extensible (fork de Vim)
+  - gcc: Compilador C
+  - curl: Herramienta para transferir datos desde o hacia servidores (*HTTP, HTTPS, FTP, etc.*)
+  - eza: Reemplazo moderno de *ls* que muestra archivos y directorios con mejor formato, colores y metadatos adicionales.
+  - bat: Alternativa a *cat* con resaltado de sintaxis, numeración de líneas e integración con *git*
+  - fzf: Buscador difuso interactivo
+  - zoxide: Gestor inteligente de directorios que aprende rutas más usadas y permite navegar más rápido
+  - tmux: Multiplexor de terminal que permite dividir la pantalla, manejar múltiples sesiones y mantener procesos activos en segundo plano
 
 ### Extras
-  - kitty: Emulador de terminal moderno, rápido y con aceleración por GPU.
+  - foot: Emulador de terminal ligero y rápido para Wayland, enfocado en rendimiento, simplicidad y bajo consumo de recursos.
   - TigerVNC: Implementación (servidor y cliente) de VNC para control remoto de escritorios.
 
-## Requisitos para uso de hyperland
-  - kanshi: Gestor automático de perfiles de pantalla según los monitores conectados (Wayland/X11).
-  - Hyprland: Gestor de ventanas dinámico (tiling) para Wayland, enfocado en estética y animaciones.
-  - wlr-randr: Herramienta de línea de comandos para configurar pantallas (salidas) en entornos Wayland (similar a xrandr).
-  - swaync: Demonio/centro de notificaciones personalizable para entornos Wayland (especialmente Sway).
-  - Thunar: Gestor de archivos gráfico, ligero y rápido (principalmente del entorno XFCE).
-  - wal (pywal): Genera y aplica esquemas de color (terminal, etc.) basados en la imagen de fondo (wallpaper).
-  - Waybar: Barra de estado/panel altamente personalizable para compositores Wayland (como Sway o Hyprland).
-  - wlogout: Menú/pantalla de salida gráfica (logout, reiniciar, apagar) para entornos Wayland.
-  - wofi: Lanzador de aplicaciones y menú genérico (tipo dmenu/rofi) para Wayland.
